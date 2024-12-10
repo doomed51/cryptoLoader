@@ -62,6 +62,31 @@ def find_decile(value, deciles):
     return 9
 
 @njit
+def percentile(values, window):
+    """
+    Calculate the percentile of a column.
+    Params: 
+        arr: np.array column to calculate percentile on
+        window: int rolling window 
+    """
+    n = len(values)
+    percentile_ranks = np.empty(n)
+    percentile_ranks[:] = np.nan  # Initialize all with NaN
+    
+    for i in range(window - 1, n):
+        # Get the current window of values
+        current_window = values[i - window + 1:i + 1]
+        current_value = values[i]
+        
+        # Calculate percentile rank
+        # Percentile rank = (number of values below current value / total number of values) * 100
+        percentile_rank = (current_window < current_value).sum() / window * 100
+        
+        percentile_ranks[i] = percentile_rank
+    
+    return percentile_ranks
+
+@njit
 def momentum(prices, lookback):
     n = len(prices)
     momo = np.empty(n)
