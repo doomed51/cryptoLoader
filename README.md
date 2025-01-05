@@ -3,6 +3,7 @@ Quick and dirty data analysis on crypto exchange data
 
 ### Supported API(s)  
 - okx 
+- binance
 - birdseye (untested) 
 
 ### Usage 
