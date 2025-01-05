@@ -2,3 +2,4 @@ pandas
 matplotlib 
 duckdb 
 numba
+requests
