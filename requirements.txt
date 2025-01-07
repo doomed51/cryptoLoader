@@ -1,5 +1,6 @@
-pandas
-matplotlib 
 duckdb 
+matplotlib 
 numba
+pandas
 requests
+seaborn
