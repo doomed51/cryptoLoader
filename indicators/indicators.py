@@ -75,7 +75,7 @@ def percentile(values, window):
     
     for i in range(window - 1, n):
         # Get the current window of values
-        current_window = values[i - window + 1:i + 1]
+        current_window = values[i - window + 1:i]
         current_value = values[i]
         
         # Calculate percentile rank
