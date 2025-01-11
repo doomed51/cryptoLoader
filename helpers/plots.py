@@ -127,3 +127,12 @@ def plotgrid_decile_returns(df, colname='logReturn_decile', maxperiod_fwdreturns
         plt.tight_layout(rect=[0, 0.03, 1, 0.95])
         
         return fig
+
+def plot_distribution(df, colname): 
+    """
+        Plots a distribution of a given column
+    """
+    fig, ax = plt.subplots(1, 1, figsize=(10, 5))
+    sns.histplot(df[colname], ax=ax, kde=True)
+    ax.set_title(f'Distribution of {colname}')
+    

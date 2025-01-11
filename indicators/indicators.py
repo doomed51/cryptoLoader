@@ -115,7 +115,10 @@ def momentum2(prices, lookback):
             break
     
     for i in range(start_idx + lookback, n):
-        momo[i] = (prices[i] / prices[i - lookback]) - 1
+        if abs(prices[i - lookback]) < 1e-10:  # Using small epsilon for floating point comparison
+            momo[i] = np.nan
+        else:
+            momo[i] = (prices[i] / prices[i - lookback]) - 1
     
     return momo
 
