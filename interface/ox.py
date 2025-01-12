@@ -154,6 +154,8 @@ class OxDataCollector:
                
                 if end_time < (datetime.now().timestamp() - days_history * 24 * 60 * 60) * 1000:
                     break
+
+                time.sleep(1) 
             if symbol_data:
                 symbol_data = pd.concat(symbol_data, ignore_index=True)
                 symbol_data = symbol_data.sort_values('openedAt', ascending=True)
